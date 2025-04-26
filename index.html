@@ -1,84 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/svg+xml" href="foundrylabs-logo.svg">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foundry Labs | AI Consulting & Education</title>
+  <title>Foundry Labs</title>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Work Sans', sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      line-height: 1.6;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
-      cursor: pointer;
-    }
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 0 20px;
-      background-color: #ffffff;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3.5em;
-      font-weight: 600;
-      max-width: 800px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    header p {
-      font-size: 1.2em;
-      max-width: 600px;
-      text-align: center;
-      color: #444;
-    }
-    section {
-      padding: 100px 20px;
-    }
-    section#about {
-      background-color: #000000;
-      color: #ffffff;
-      width: 100%;
-    }
-    section#contact {
-      background-color: #ffffff;
-      color: #000000;
-      width: 100%;
-    }
-    section h2 {
-      font-size: 2.5em;
-      font-weight: 500;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    section p {
-      font-size: 1.1em;
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-    footer {
-      padding: 50px 20px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #555;
-      border-top: 1px solid #000000;
-      margin-top: 50px;
-    }
+    body { margin: 0; font-family: 'Work Sans', sans-serif; background-color: #ffffff; color: #000000; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; cursor: pointer; }
+    header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 20px; background-color: #ffffff; position: relative; }
+    header img.logo { width: 240px; height: auto; margin-bottom: 20px; }
+    header h1 { font-size: 3.5em; font-weight: 600; max-width: 800px; text-align: center; margin-bottom: 20px; }
+    header p { font-size: 1.2em; max-width: 600px; text-align: center; color: #444; }
+    nav { position: absolute; top: 20px; right: 20px; }
+    nav a { margin-left: 20px; font-size: 1em; cursor: pointer; }
+    section { padding: 100px 20px; }
+    section#about { background-color: #000000; color: #ffffff; width: 100%; }
+    section#contact { background-color: #ffffff; color: #000000; width: 100%; }
+    section h2 { font-size: 2.5em; font-weight: 500; margin-bottom: 20px; text-align: center; }
+    section p { font-size: 1.1em; max-width: 800px; margin: auto; text-align: center; }
+    footer { padding: 50px 20px; text-align: center; font-size: 0.9em; color: #555; border-top: 1px solid #000000; margin-top: 50px; }
   </style>
 </head>
 <body>
   <header>
+    <nav>
+      <a id="lang-en">EN</a>
+      <a id="lang-jp">JP</a>
+    </nav>
+    <img src="foundrylabs-logo.svg" alt="Foundry Labs Logo" class="logo">
     <h1 id="site-title">Foundry Labs</h1>
     <p id="site-tagline">Based in Japan. Working globally. Focused on results.</p>
   </header>
@@ -96,5 +48,28 @@
   <footer>
     &copy; 2025 Foundry Labs. All rights reserved.
   </footer>
+
+  <script>
+    window.onload = function() {
+      document.getElementById('lang-en').addEventListener('click', function() { switchLanguage('en'); });
+      document.getElementById('lang-jp').addEventListener('click', function() { switchLanguage('jp'); });
+
+      function switchLanguage(lang) {
+        if (lang === 'jp') {
+          document.getElementById('site-tagline').innerText = '日本を拠点に、世界を視野に、成果に集中。';
+          document.getElementById('about-title').innerText = '会社概要';
+          document.getElementById('about-text').innerText = 'Foundry Labs は、日本を拠点とするAIおよびディープテックに特化したエンジニアリングおよびリサーチファームです。世界中のイノベーターや大手企業の最先端技術を統合し、精密で高品質なソリューションを提供します。日本最大級のAIコミュニティとの強固な連携を基盤に、クライアントに持続的な技術力を提供しています。';
+          document.getElementById('contact-title').innerText = 'お問い合わせ';
+          document.getElementById('contact-text').innerHTML = 'メール: <a href="mailto:contact@foundrylabs.ai">contact@foundrylabs.ai</a>';
+        } else {
+          document.getElementById('site-tagline').innerText = 'Based in Japan. Working globally. Focused on results.';
+          document.getElementById('about-title').innerText = 'About';
+          document.getElementById('about-text').innerText = "Foundry Labs is a Japan-based engineering and research-driven firm specializing in artificial intelligence and deep-tech solutions. We integrate cutting-edge technologies from global innovators and established leaders to deliver tailored systems with precision and impact. With strong roots in Japan's premier AI community, we focus on building enduring capabilities for our clients through rigorous engineering and knowledge transfer.";
+          document.getElementById('contact-title').innerText = 'Contact';
+          document.getElementById('contact-text').innerHTML = 'Email: <a href="mailto:contact@foundrylabs.ai">contact@foundrylabs.ai</a>';
+        }
+      }
+    }
+  </script>
 </body>
 </html>
